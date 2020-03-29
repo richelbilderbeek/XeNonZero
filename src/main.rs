@@ -1,5 +1,5 @@
 
-fn create_str_of_spaces(n_chars: u8) -> String {
+fn create_str_of_spaces(n_chars: usize) -> String {
     let mut s = String::new();
     for _i in 0..n_chars {
       s.push(' ');
@@ -7,21 +7,23 @@ fn create_str_of_spaces(n_chars: u8) -> String {
     s
 }
 
-fn create_starfield(n_rows: usize) -> Vec<String> {
+fn create_starfield(n_rows: usize, c_cols: usize) -> Vec<String> {
   let mut v: Vec<String> = Vec::new();
-  v.resize(n_rows,  ". . . . . ".to_string());
+  let s = create_str_of_spaces(c_cols);
+  v.resize(n_rows, s);
   v
 }
 
 
 
 fn test() -> () {
-    assert!(create_str_of_spaces(0) == "".to_string());
+    assert_eq!(create_str_of_spaces(0), "".to_string());
     assert!(create_str_of_spaces(1) == " ".to_string());
     assert!(create_str_of_spaces(2) == "  ".to_string());
     assert!(create_str_of_spaces(3) == "   ".to_string());
 
-    assert!(8 == create_starfield(8).len());
+    assert_eq!(8, create_starfield(8, 60).len());
+    assert!(60 == create_starfield(8, 60)[0].len());
 }
 
 fn main() {
@@ -32,6 +34,12 @@ fn main() {
 
     let mut s = create_str_of_spaces(10);
     s.push('X');
+    println!("........................................");
+    let starfield = create_starfield(10, 20);
+    for line in starfield {
+      println!("{}", line);
+    }
+
     println!("........................................");
     println!("{}", s);
     println!("........................................");
