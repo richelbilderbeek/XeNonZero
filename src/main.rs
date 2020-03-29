@@ -30,16 +30,27 @@ fn old_main() {
 
 fn main() {
 
-    let mut x = 40;
+    let mut x = 10;
+    assert!(x == 10 , "x wasn't true!");
 
-    assert!(x == 40 , "x wasn't true!");
+    let mut s = String::new();
+    for number in 0..x {
+      s.push(' ');
+    }
+    s.push('X');
+    println!("........................................");
+    println!("{}", s);
+    println!("........................................");
 
-    println!("Please input your guess.");
 
-    let mut guess = String::new();
 
-    io::stdin().read_line(&mut guess)
-        .expect("Failed to read line");
+    //println!("Please input your guess.");
 
-    println!("You guessed: {}", guess);
+    //let mut guess = String::new();
+
+    //io::stdin().read_line(&mut guess)
+    //    .expect("Failed to read line");
+
+    //println!("You guessed: {}", guess);
+    println!("Got all the way to the end!");
 }
