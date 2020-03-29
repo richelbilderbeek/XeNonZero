@@ -18,12 +18,12 @@ fn create_starfield(n_rows: usize, c_cols: usize) -> Vec<String> {
 
 fn test() -> () {
     assert_eq!(create_str_of_spaces(0), "".to_string());
-    assert!(create_str_of_spaces(1) == " ".to_string());
-    assert!(create_str_of_spaces(2) == "  ".to_string());
-    assert!(create_str_of_spaces(3) == "   ".to_string());
+    assert_eq!(create_str_of_spaces(1), " ".to_string());
+    assert_eq!(create_str_of_spaces(2), "  ".to_string());
+    assert_eq!(create_str_of_spaces(3), "   ".to_string());
 
     assert_eq!(8, create_starfield(8, 60).len());
-    assert!(60 == create_starfield(8, 60)[0].len());
+    assert_eq!(60, create_starfield(8, 60)[0].len());
 }
 
 fn main() {
