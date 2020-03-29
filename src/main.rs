@@ -13,5 +13,8 @@ struct Cli {
 
 fn main() {
   let args = Cli::from_args();
-  println!("Hello, world!!");
+  println!("XXXX");
+  println!("A {}", args.pattern);
+  println!("B {:?}", args.path);
+  println!("Hello, world!!!!");
 }
