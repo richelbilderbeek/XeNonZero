@@ -1,17 +1,6 @@
-use structopt::StructOpt;
+use std::io;
 
-/// Search for a pattern in a file and display the lines that contain it.
-#[derive(StructOpt)]
-struct Cli {
-    /// The pattern to look for
-    pattern: String,
-    /// The path to the file to read
-    #[structopt(parse(from_os_str))]
-    path: std::path::PathBuf,
-}
-
-
-fn main() {
+fn old_main() {
     let result = std::fs::read_to_string("/home/richel/GitHubs/xenon_zero/sprites.txt");
     match result {
         Ok(content) => { println!("File content: {}", content); }
@@ -26,4 +15,31 @@ fn main() {
         println!("Another line: {}", line);
     }
     println!("Hello, world!!!!");
+
+    println!("Guess the number!");
+
+    println!("Please input your guess.");
+
+    let mut guess = String::new();
+
+    io::stdin().read_line(&mut guess)
+        .expect("Failed to read line");
+
+    println!("You guessed: {}", guess);
+}
+
+fn main() {
+
+    let mut x = 40;
+
+    assert!(x == 40 , "x wasn't true!");
+
+    println!("Please input your guess.");
+
+    let mut guess = String::new();
+
+    io::stdin().read_line(&mut guess)
+        .expect("Failed to read line");
+
+    println!("You guessed: {}", guess);
 }
