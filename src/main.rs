@@ -1,3 +1,8 @@
+struct Game {
+  n_rows: usize,
+  n_cols: usize,
+  player_x: i8
+}
 
 fn create_str_of_spaces(n_chars: usize) -> String {
     let mut s = String::new();
@@ -29,18 +34,17 @@ fn test() -> () {
 fn main() {
     test();
 
-    let x = 10;
-    assert!(x == 10 , "x wasn't true!");
+    let game = Game { n_cols: 20, n_rows: 10, player_x: 10 };
 
-    let mut s = create_str_of_spaces(10);
-    s.push('X');
     println!("........................................");
-    let starfield = create_starfield(10, 20);
+    let starfield = create_starfield(game.n_rows, game.n_cols);
     for line in starfield {
       println!("{}", line);
     }
 
     println!("........................................");
+    let mut s = create_str_of_spaces(game.player_x);
+    s.push('X');
     println!("{}", s);
     println!("........................................");
 
